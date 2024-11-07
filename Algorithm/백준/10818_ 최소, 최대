@@ -1,0 +1,61 @@
+# 10818. 최소, 최대
+
+### 1. 문제분석 & 이유
+
+최댓값, 최솟값 찾기: max(), min()함수 이용
+
+### 2. Pseudo Code
+
+```python
+N개의 정수
+
+공백리스트에 N개 정수 입력 list(map())
+
+최댓값 = max(list)
+최솟값 = min(list)
+
+최댓값, 최솟값 출력
+```
+
+---
+
+### 3. 문제점 & 해결방안
+
+큰 문제 X
+
+### 4. 최종 코드
+
+```python
+#입력값 N개 고려할 때-> 144,340KB , 432ms
+N = int(input())
+
+nums = list(map(int, input().split()))
+
+max_num = nums[0]
+min_num = nums[0]
+
+#,max, min함수 이용 안 하고
+for i in range(N):
+  if (nums[i] > max_num):
+    max_num = nums[i]
+  elif (nums[i] < min_num):
+    min_num = nums[i]
+
+print(min_num, max_num)
+
+```
+
+```python
+#입력값 N개 고려 안 할 때-> 153,832KB , 336ms
+N = int(input())
+
+numbers = list(map(int, input().split()))
+
+#max,min함수 이용
+print(min(numbers), max(numbers))
+```
+
+### 5. 배운점
+
+- 내장함수를 이용하는게 가장 편리하고 for문으로 직접 구현했을 때보다 시간이 덜 걸리지만, 메모리는 조금 더 차지하게 됨.
+- 변수를 최소한으로 사용하기
